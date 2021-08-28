@@ -16,7 +16,7 @@ function setDate() {
    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
 
    const hour = now.getHours();
-   const hourDegrees = ((hour / 60) * 360 + 90);
+   const hourDegrees = (((hour / 12)) * 360 + 90);
    hourHand.style.transform = `rotate(${hourDegrees}deg)`
 }
 
@@ -64,3 +64,32 @@ function hexoClock() {
 }
 
 setInterval(hexoClock, 1000);
+
+//Light/Dark Mode
+
+const toggle = document.querySelector('.toggle');
+
+toggle.addEventListener('click', (e) => {
+   const bg = document.querySelector('.wallpaper');
+   if (bg.classList.contains('dark')) {
+      bg.classList.remove('dark');
+      bg.classList.add('light');
+
+      toggle.classList.add('btn-light');
+      toggle.classList.remove('btn-dark')
+      e.target.textContent = 'Dark Mode';
+   } else {
+      bg.classList.add('dark');
+      bg.classList.remove('light');
+
+      toggle.classList.add('btn-dark');
+      toggle.classList.remove('btn-light')
+      e.target.textContent = 'Light Mode';
+   }
+})
+
+console.group('Самооценка по заданию');
+console.log('Разобраться в коде чужого проекта, понять его, воспроизвести исходное приложение. Правки и изменения допускаются и приветствуются, если они не ухудшают внешний вид и функционал исходного проекта. За недостатки, которые присутствуют в исходном проекте, баллы не снимаются. +10');
+console.log('Для каждого проекта указан обязательный дополнительный функционал, который необходимо реализовать. В каждом задании обязательный дополнительный функционал свой, он указан в описании задания. +10');
+console.log('Дополнительный фукционал на выбор это одно или несколько улучшений, которые вы можете добавить в свой проект. +10');
+console.groupEnd('Итог: 30')
