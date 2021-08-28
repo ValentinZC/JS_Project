@@ -1,0 +1,96 @@
+* {
+   box-sizing: border-box;
+}
+
+html,
+body {
+   margin: 0;
+   padding: 0;
+}
+
+.wallpaper {
+   height: 100vh;
+   width: 100vw;
+   background-image: url('img/wallpaper.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: flex;
+   flex-direction: column;
+}
+
+/*============ANALOG CLOCK=================*/
+
+.analog-clock {
+   position: relative;
+   width: 50%;
+   height: 50%;
+   border-radius: 50%;
+   background-image: url('img/a-clock.PNG');
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.analog-clock__face {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   transform: translateY(-3px);
+}
+
+.hand {
+   position: absolute;
+   height: 10px;
+   top: 50%;
+   border: 1px solid rgb(0, 0, 0);
+   transition: all 0.05;
+   transition-timing-function: cubic-bezier(0.11, 2.26, 1, 1);
+   transform-origin: 100%;
+   transform: rotate(90deg);
+}
+
+
+.hour-hand {
+   background-color: #4cdf97;
+   width: 15%;
+   left: 35%;
+}
+
+.minute-hand {
+   background-color: #26bcb0;
+   width: 20%;
+   left: 30%;
+}
+
+.second-hand {
+   background-color: #f14e4b;
+   width: 25%;
+   left: 25%;
+   height: 5px;
+}
+
+
+/*================ELECTRONIC CLOCK============*/
+
+.electronic-clock {
+   width: 50%;
+   height: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #ffffff;
+   font-size: 34px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.electronic-clock__face {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   width: 75%;
+   height: 75%;
+}
+
+.electronic-clock__item {
+   text-align: center;
+}
