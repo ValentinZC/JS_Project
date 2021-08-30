@@ -1,0 +1,64 @@
+:root {
+   --base: #ffc600;
+   --spacing: 10px;
+   --blur: 10px;
+}
+
+.hl {
+   color: var(--base);
+}
+
+img {
+   padding: var(--spacing);
+   background-color: var(--base);
+   filter: blur(var(--blur));
+}
+
+body {
+   background-color: blueviolet;
+   color: white;
+   text-align: center;
+   font-family: 'helvetica neue', sans-serif;
+   font-weight: 100;
+   font-size: 50px;
+}
+
+.controls {
+   margin-bottom: 50px;
+}
+
+input {
+   width: 100px;
+}
+
+.slider {
+   -webkit-appearance: none;
+   width: 100px;
+   height: 10px;
+   background: blueviolet;
+   outline: none;
+   border: 1px solid #fff;
+   border-radius: 10px;
+}
+
+
+ /* for chrome/safari */
+.slider::-webkit-slider-thumb {
+   appearance: none;
+   width: 30px;
+   height: 30px;
+   background: blueviolet;
+   cursor: pointer;
+   border: 1px solid #fff;
+   border-radius: 50%;
+}
+
+ /* for firefox */
+.slider::-moz-range-thumb {
+   width: 20px;
+   height: 60px;
+   background: #000;
+   cursor: pointer;
+   border: 5px solid lawngreen;
+   border-radius: 4px;
+ }
