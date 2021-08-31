@@ -4,7 +4,18 @@
 }
 
 body {
+   background: linear-gradient(blue, pink);
+   display: flex;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   height: 100vh;
+   align-items: center;
+   justify-content: center;
+}
+
+h1 {
+   text-align: center;
+   text-transform: uppercase;
+   color: #eee;
 }
 
 .task-list {
