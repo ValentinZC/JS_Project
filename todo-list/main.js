@@ -8,7 +8,7 @@ class Task {
 let dataService = {
    tasks: [],
 
-   get allTask() {
+   get allTasks() {
       return this.tasks;
    },
 
@@ -18,42 +18,50 @@ let dataService = {
 
    add(task) {
       this.tasks.push(task);
-      this.save()
+      this.save();
+   },
+
+   delete(task) {
+      let index = this.tasks.indexOf(task);
+      this.tasks.splice(index, 1);
+      this.save();
    },
 
    save() {
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      localStorage.setItem("tasks", JSON.stringify(this.tasks));
    },
 
    open() {
-      this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-   },
+      this.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+   }
 }
 
 class TasksListView {
    element;
+   dataService;
 
    constructor(element) {
       this.element = element;
+      dataService = dataService;
    }
 
-   drawList(tasksElements) {
-      this.element.innerHTML = '';
+   #drawList(tasksElements) {
+      this.element.innerHTML = "";
 
       tasksElements.forEach(taskElement => {
          taskElement.createIn(this.element);
-      })
+      });
    }
 
    drawAll() {
       let taskElements = [];
-      let tasks = dataService.allTask;
+      let tasks = dataService.allTasks;
       if (tasks.length == 0) return;
 
       tasks.forEach(task => {
          taskElements.push(new TaskView(task))
       });
-      this.drawList(taskElements);
+      this.#drawList(taskElements);
    }
 
    drawNotCompleted() {
@@ -64,7 +72,7 @@ class TasksListView {
       tasks.forEach(task => {
          taskElements.push(new TaskView(task))
       });
-      this.drawList(taskElements);
+      this.#drawList(taskElements);
    }
 }
 
@@ -75,18 +83,23 @@ class TaskView {
    }
 
    createIn(element) {
-      this.div = document.createElement('div');
-      this.div.classList.add('task');
+      this.div = document.createElement("div");
+      this.div.classList.add("task");
 
-      let input = document.createElement('input');
-      input.addEventListener('click', this.changeState.bind(this));
-      input.type = 'checkbox';
+      let input = document.createElement("input");
+      input.addEventListener("click", this.changeState.bind(this));
+      input.type = "checkbox";
 
       let p = document.createElement("p");
       p.innerText = this.task.text;
 
+      let button = document.createElement("button");
+      button.innerHTML = "X";
+      button.addEventListener("click", this.delete.bind(this));
+
       this.div.append(input);
       this.div.append(p);
+      this.div.append(button);
 
       if (this.task.isDone) {
          this.div.classList.add("completed");
@@ -98,7 +111,12 @@ class TaskView {
    changeState(element) {
       this.task.isDone = !this.task.isDone;
       dataService.save();
-      this.div.classList.toggle('completed');
+      this.div.classList.toggle("completed");
+   }
+
+   delete() {
+      dataService.delete(this.task);
+      this.div.remove();
    }
 }
 
@@ -108,7 +126,6 @@ let startMessage = document.querySelector("#start-message");
 let showAllButton = document.querySelector("#show-all-btn");
 let showNotCompletedButton = document.querySelector("#show-not-completed-btn");
 let taskList = document.querySelector(".task-list");
-
 
 dataService.open();
 let tasksListView = new TasksListView(taskList);
