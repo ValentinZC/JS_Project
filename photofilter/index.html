@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Photofilter</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <h2>Photofilter with CSS and <span class="hl">JS</span></h2>
+
+   <div class="controls">
+      <label for="spacing">Spacing:</label>
+      <input type="range" id="spacing" class="slider" name="spacing" min="10" max="200" value="10" data-sizing="px">
+      <label for="blur">Blur:</label>
+      <input type="range" id="blur" class="slider" name="blur" min="0" max="25" value="10" data-sizing="px">
+      <label for="base">Base Color:</label>
+      <input type="color" id="base" name="base" value="#ffc600">
+
+      <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+   </div>
+</body>
+<script src="main.js"></script>
+
+</html>
