@@ -8,3 +8,5 @@
 ![TO-DO List](https://i.ibb.co/gS4BB5q/img.png)
 - [Slider Class](https://valentinzc.github.io/JS_Project/slider-vertical/)
 ![TO-DO List](https://i.ibb.co/tq0YQnb/image.png)
+-[Scroll Event](https://valentinzc.github.io/JS_Project/landing-scroll-event/)
+![Scroll event](https://i.ibb.co/vZ0Ny7y/image.png)
