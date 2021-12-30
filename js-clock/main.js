@@ -42,7 +42,7 @@ function hexoClock() {
    }
 
    function getMonthDay(now) {
-      let days = ['December', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'];
+      let days = ['December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'];
       return days[now.getMonth()];
    }
 
